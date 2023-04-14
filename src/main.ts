@@ -4,11 +4,11 @@ import { BoxFactory } from "./BoxFactory";
 let currentValue = 1;
 let increment = 1;
 // get gameContainer and increasingButton form the DOM
-let gameContainer = document.querySelector(".game-container");
+const gameContainer = document.querySelector(".game-container");
 
 // display the current value
-let currentValueDisplay = document.querySelector(".current-value");
-let incrementDisplay = document.querySelector(".increment");
+const currentValueDisplay = document.querySelector(".current-value");
+const incrementDisplay = document.querySelector(".increment");
 
 // check if the elements are there
 if (!gameContainer || !currentValueDisplay || !incrementDisplay) {
@@ -16,7 +16,7 @@ if (!gameContainer || !currentValueDisplay || !incrementDisplay) {
 }
 
 // creating the boxes
-let Box1 = BoxFactory({
+const Box1 = BoxFactory({
   parentDiv: gameContainer,
   color: "red",
   currentNumber: currentValue,
@@ -26,7 +26,7 @@ let Box1 = BoxFactory({
     updateBoxes();
   },
 });
-let Box2 = BoxFactory({
+const Box2 = BoxFactory({
   parentDiv: gameContainer,
   color: "green",
   currentNumber: currentValue,
@@ -36,7 +36,7 @@ let Box2 = BoxFactory({
     updateBoxes();
   },
 });
-let Box3 = BoxFactory({
+const Box3 = BoxFactory({
   parentDiv: gameContainer,
   color: "yellow",
   currentNumber: currentValue,
@@ -46,7 +46,7 @@ let Box3 = BoxFactory({
     updateBoxes();
   },
 });
-let Box4 = BoxFactory({
+const Box4 = BoxFactory({
   parentDiv: gameContainer,
   color: "blue",
   currentNumber: currentValue,
@@ -85,6 +85,7 @@ function addNumber(): void {
   updateBoxes();
 }
 
+// this will increase the value of the current value every second
 setInterval(() => {
   addNumber();
 }, 1000);

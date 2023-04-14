@@ -5,7 +5,7 @@ type BoxFactory = {
   endingNumber: number;
   onBuy: () => void;
 };
-
+// this will create the box that contains a progress bar and a button
 export const BoxFactory = ({
   parentDiv,
   color,
@@ -31,23 +31,25 @@ export const BoxFactory = ({
   button.className = "button";
   button.innerHTML = "Buy";
 
+  // adding an event listener to the button which will be invoked outside the function
   button.addEventListener("click", () => {
     onBuy();
   });
 
+  // appending the elements to the container
   progress.appendChild(progressColor);
-
   container.appendChild(progress);
   container.appendChild(button);
   parentDiv.appendChild(container);
 
+  // this will update the width of the progress bar based on the current number
   const updateWidth = () => {
     const width = (currentNumber / endingNumber) * 100;
     progressColor.style.width = `${width}%`;
   };
-
   updateWidth();
 
+  // this will return an object with a function that will update the current number and the button
   return {
     setCurrentNumber: (newNumber: number) => {
       currentNumber = newNumber;
